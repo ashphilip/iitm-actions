@@ -11,3 +11,13 @@ jobs:
     steps:
       - name: 23f2001235@ds.study.iitm.ac.in
         run: echo "Hello, world!"
+
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: cache-93cc33c
+
+      - name: prime-cache-93cc33c
+        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
